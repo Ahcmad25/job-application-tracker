@@ -35,3 +35,15 @@ export type ApplicationFilters = {
   status?: ApplicationStatus;
   search?: string;
 };
+
+export type CreateApplicationRequest = {
+  company: string;
+  position: string;
+  jobUrl?: string;
+  status?: ApplicationStatus;
+  appliedDate: string;
+  notes?: string;
+};
+
+export type UpdateApplicationRequest =
+  Partial<CreateApplicationRequest>;
