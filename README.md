@@ -61,6 +61,7 @@ JobTrack is a full-stack application for recording, organizing and monitoring jo
 - npm
 - PostgreSQL
 - Git
+- Docker Desktop, optional
 
 ## Project Structure
 
@@ -169,6 +170,63 @@ Open:
 ```text
 http://localhost:3000
 ```
+
+## Docker Setup
+
+Docker Desktop is required.
+
+From the project root, build and start all services:
+
+```bash
+docker compose up --build
+```
+
+To run in the background:
+
+```bash
+docker compose up -d --build
+```
+
+Open:
+
+```text
+Frontend: http://localhost:3000
+Backend:  http://localhost:3001/api
+```
+
+View container status:
+
+```bash
+docker compose ps
+```
+
+View logs:
+
+```bash
+docker compose logs -f
+```
+
+Stop the application:
+
+```bash
+docker compose down
+```
+
+Stop the application and delete Docker database data:
+
+```bash
+docker compose down -v
+```
+
+The Docker setup includes:
+
+- Next.js frontend
+- NestJS backend
+- PostgreSQL database
+- Automatic Prisma migrations
+- Persistent PostgreSQL storage
+- Service health checks
+
 
 ## Running Tests
 

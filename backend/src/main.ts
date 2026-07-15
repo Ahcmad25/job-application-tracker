@@ -10,7 +10,7 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix('api');
 
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: configService.get<string>('FRONTEND_URL', 'http://localhost:3000'),
     credentials: true,
   });
 
@@ -24,7 +24,7 @@ async function bootstrap(): Promise<void> {
 
   const port = configService.get<number>('PORT', 3001);
 
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
 
   console.log(`Backend running at http://localhost:${port}/api`);
 }
